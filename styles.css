@@ -1,103 +1,234 @@
-body{
-    font-family: Arial, sans-serif;
-    background:url("images/background.jpeg");
-    background-position: center;
-    background-size: cover;
+*{
+   margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
 }
-
-form {
-    max-width: 400px;
-    margin-top: 100px ;
-    margin-left: 530px;
-    padding: 20px;
-    background:rgba(0,0,0,0.3);   
-    border-radius: 10px;
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background:gold;
+    box-shadow: 0 1px 4px hs1(0 4% 15% / 10%);
 }
-h2{
-    color: aliceblue;
+.container{
+    width: 100%;
+    margin: auto;
+    max-width: 1268px;s
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.nav img{
+    width: 200px;
+}
+#cart-icon{
     font-size: 32px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: aliceblue;
-    margin-left: 30px;
-}
-
-input {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: 30px;
-}
-
-button {
-    background-color: #89CFF0;
-    color: black;
-    width: 80px;
-    height: 30px;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
-    margin-left: 160px;
+}
+
+/*------------------------------cart------------------*/
+.cart{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    min-height: 100vh;
+    padding: 20px;
+    background: white;
+    box-shadow: rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+.cart.active{
+    right: 0;
+}
+.cart-title{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 35px;
+}
+.cart-box{
+    display: grid;
+    grid-template-columns: 50% 32% 18%;
+    align-items: center;
+    column-gap: 3px;
     margin-top: 20px;
 }
-
-button:hover {
-    background-color: #ADD8E6;
-    
+.cart-img{
+    width: 100px;
+    height: 140px;
+    object-fit: contain;
+    padding: 10px;
 }
-.popup {
-    font-size: 25px;
-    display: block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background:  #89CFF0;
-    color: black;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+.detail-box{
+    display: grid;
+    grid-row-gap: 1rem;
 }
-.password-field {
-    position: relative;
+.cart-product-title{
+    font-size: 1.5rem; 
 }
-
-.toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 37px;
-    top: 20px;
-    transform: translateY(-50%);
+.cart-price{
+    font-weight: 700;
+}
+.cart-quantity{
+    border: 1px solid black;
+    width: 2.4rem;
+    text-align: center;
+    font-size: 1rem;
+}
+.cart-remove{
+    font-size: 24px;
     cursor: pointer;
+}
+.total{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    border-top: 1px solid black;
+}
+.total-title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.total-price{
+    margin-left: 1rem;
+}
+.btn-buy{
+   display: flex;
+    margin: 1.5rem auto 0 auto;
+    width:  70px;
+    padding-top: 4px;
+    padding-left: 5px;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+#close-cart{
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    cursor: pointer;
+}
+/*----------------------------------latest-----------------------------*/
+
+.latest{
+    padding-top: 120px;
+}
+h2{
+     text-align: center;
+    font-size: 32px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+h3{
+    text-align: center;
     font-size: 20px;
-    user-select: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+p{
+    padding-bottom: 3px;
+}
+.l-r{
+    display: flex;
+    flex-basis: 25%;
+    padding-left: 50px;
+}
+.l-r img{
+    height: 40vh;
+}
+.l-c{
+    flex-basis: 25%;
+}
+#star{
+    color: gold;
+    padding-bottom: 3px;
+}
+button{
+    height: 30px;
+    width: 140px;
+    background: gold;
+    border-radius: 5px;
+}
+button:hover{
+    background: black;
+    color: aliceblue;
 }
 
-/* Styles for the eye icon */
-.toggle-password:before {
-    content: "\f06e"; /* Unicode character for an eye icon */
-    font-family: FontAwesome;
-    color: #666;
-    
+/*-------------------------------------Bestsellers-----------------------------*/
+.bestsellers{
+    padding-top: 40px;
+}
+.bs-r{
+    display: flex;
+    width: 70%;
+    padding-left: 300px;
+    padding-bottom: 30px;
+}
+.bs-r img{
+    height: 40vh;
+    padding-left: 30px;
+}
+.bs-c{
+    flex-basis: 50%;
+    padding-right: 50px;
 }
 
-.password-hidden .toggle-password:before {
-    content: "\f070"; /* Unicode character for a crossed-out eye icon */
+/*-------------------------------keep shopping-------------------------*/
+.k-r{
+   display: flex;
+    flex-basis: 25%;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+.k-c{
+    flex-basis: 25%;
+}
+.k-r img{
+    height: 40vh;
+    text-align: center;
 }
 
-@media(max-width:700px){
-    form {
-        padding: 10px;
-    }
 
-    input {
-        padding: 8px;
-        margin-left: 10px;
-    }
+
+
+
+/*--------------------------Footer-------------------------*/
+.Footer{
+    background: black;
+    color: aliceblue;
+}
+.Footer h3{
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.f-r{
+    display: flex;
+    padding-left: 20px;
+}
+.f-c{
+    flex-basis: 33%;
+}
+#phone,#email,#fi{
+    color: aliceblue;
+}
+.f-r1{
+    color: aliceblue;
+}
+.f-r1 h3{
+    text-align: center;
+    font-size: 32px;
+}
+.f-r1{
+    text-align: center;
+}
+#fi{
+    padding-left: 20px;
+    font-size: 32px;
+    padding-bottom: 20px;
 }
