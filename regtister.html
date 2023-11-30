@@ -1,103 +1,285 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        function validateForm() {
-    // Add your form validation logic here
-
-    // If the form is valid, show the pop-up
-    if (isFormValid()) {
-        showPopup();
-    }
-
-    return false; // Prevent form submission for this example
-}
-
-function isFormValid() {
-    // Add your form validation logic here
-     var nameInput = document.getElementById("username");
-            var nameValue = nameInput.value;
-
-            // Regular expression to allow only alphabets and numbers
-            var regex = /^[A-Za-z0-9]+$/;
-
-            if (!regex.test(nameValue)) {
-                alert("Username should contain only alphabets and numbers.");
-                nameInput.value = ""; // Clear the input field
-                return false;
-            }
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-            var emailInput = document.getElementById("email");
-            var emailValue = emailInput.value;
-
-            // Regular expression for email validation
-            var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
-            if (!emailRegex.test(emailValue)) {
-                alert("Please enter a valid email address.");
-                emailInput.value = ""; // Clear the input field
-                return false;
-            }
-    // Return true if the form data is valid, otherwise return false
-    return true; // For this example, always returning true
-}
-
-function showPopup() {
-    var popup = document.createElement("div");
-    popup.className = "popup";
-    popup.innerHTML = "Registration Successful!";
-
-    document.body.appendChild(popup);
-
-    setTimeout(function () {
-        popup.style.display = "none";
-    }, 3000); // Hide the pop-up after 3 seconds
-}
-     
-    function togglePasswordVisibility(icon) {
-    var passwordField = icon.parentElement;
-    var passwordInput = passwordField.querySelector("input");
-
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        passwordField.classList.add("password-visible");
-    } else {
-        passwordInput.type = "password";
-        passwordField.classList.remove("password-visible");
-    }
-}
-
-    </script>
-    
-</head>
-<body>
-    <section class="form1">
-        <form id="registration-form" action="process_registration.php" method="post" onsubmit="return validateForm() &&  togglePasswordVisibility(icon);">
-        <h2>Registration Form</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required placeholder="John Doe" pattern="^[a-zA-Z ]+$" title="Only letters and spaces are allowed">
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="john@example.com">
+    </head>
+    <body>
+        
+         <header>
+             <div class="nav container">
+                 <a href="#" class="logo"><img src="images/Logo.png"></a>
+                 <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+                 <div class="cart">
+                     <h4 class="cart-title">Your Cart</h4>
+                     <div class="cart-content">
+                     
+                     </div>
+                     <div class="total">
+                         <div class="total-title">Total</div>
+                         <div class="total-price">0 Rs</div>
+                     </div>
+                     <button type="button" class="btn-buy">Buy Now</button>
+                     <i class="fa fa-times" id="close-cart"></i>
+                 </div>
+             </div>
+        </header>
+       
+        
+    <!------------------------------latest------------------------------------>  
+        <section class="latest">
+            <h2>Latest Arrivals</h2>
+            <div class="l-r">
+                <div class="l-c">
+                    <img src="images/l1.jpg" class="product-img">
+                    <h3 class="product-title">Fossil</h3>
+                    <p >Fossil Grant Analog Blue Dial<br> Men's Watch</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                    <span class="price">7497 Rs</span><br>
+                    <button data-name="Fossil Watch" data-price="7497" data-image="images/l1.jpg" data-add-to-cart>Add To Cart</button>
+                </div>
+                <div class="l-c">
+                    <img src="images/l2.jpg"  class="product-img">
+                    <h3 class="product-title">Titan</h3>
+                    <p>Karishma Analog Silver Dial Men's Watch-NL1774BM01/NP1774BM01</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                    <span class="price">3365 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="l-c">
+                    <img src="images/l3.jpg"  class="product-img">
+                    <h3 class="product-title">Fastrack</h3>
+                    <p>Fastrack Limitless FS1 Pro Smart Watch|1.96" Super AMOLED Arched Display</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                    <span class="price">2699 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="l-c">
+                    <img src="images/l4.jpg" class="product-img">
+                    <h3 class="product-title">Tommy Hilfiger</h3>
+                    <p>Analog Multi-Colour Dial Men's Watch <br>TH1791400</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                    <span class="price">9525 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+            </div>
+        </section>
+        
+        
+    <!-----------------------------Bestsellers----------------------------->
+        <section class="bestsellers">
+             <h2>Best Sellers</h2>
+            <div class="bs-r">
+                <div class="bs-c">
+                    <img src="images/bs1.jpg"  class="product-img">
+                    <h3 class="product-title">Fite-Bolt</h3>
+                    <p>Fire-Boltt Phoenix Ultra Luxury Stainless Steel, Bluetooth Calling Smartwatch, AI Voice Assistant, Metal Body(Multicolor)</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                    <span class="price">1999 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="bs-c">
+                    <img src="images/bs2.jpg" class="product-img">
+                    <h3 class="product-title">Sonata</h3>
+                    <p>Sonata Black Dial Analog watch For Men-NR77105SL02W</p><br>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star-half-stroke" id="star"></i><br>
+                    <span class="price">1125 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+            </div>
+            <div class="bs-r">
+                <div class="bs-c">
+                    <img src="images/bs3.jpg" class="product-img">
+                    <h3 class="product-title">NIBOSI</h3>
+                    <p> Men's Watches Analog Quartz Starry Dial Watches for Men Stylish Waterproof Chronograph Stainless Steel Leather Wrist Watches Calendar</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star" id="star"></i><br>
+                    <span class="price">2999 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="bs-c">
+                    <img src="images/bs4.jpg" class="product-img">
+                    <h3 class="product-title">Fire-bolt</h3>
+                    <p>Fire-Boltt Ninja Call Pro Smart Watch Dual Chip Bluetooth Calling, 1.69" Display, AI Voice Assistance with 100 Sports Modes, with SpO2 & Heart Rate Monitoring</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star" id="star"></i><br>
+                    <span class="price">2550 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+            </div>
+  
+        </section>
+        
+        
+        
+    <!---------------------------Keep shopping----------------------------------->
+        <section class="ks">
+            <h2>Keep Shopping for </h2>
+            <div class="k-r">
+                <div class="k-c">
+                    <img src="images/ks1.jpg" class="product-img">
+                    <h3 class="product-title">Timex</h3>
+                    <p>Analog Blue Dial Boy's Watch-TWEG19<br>601</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                   <span class="price"> 2566 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="k-c">
+                    <img src="images/ks2.jpg" class="product-img">
+                    <h3 class="product-title">boAt </h3>
+                    <p>boAt Lunar Orb Smart Watch with 1.45" AMOLED Display</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                   <i class="fa-regular fa-star-half-stroke" id="star"></i><br>
+                    <span class="price">5499 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="k-c">
+                    <img src="images/ks3.jpg" class="product-img">
+                    <h3 class="product-title">Fire-Boltt</h3>
+                    <p>Fire-Boltt Gladiator 1.96" Biggest Display Smart Watch</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star-half-stroke" id="star"></i><br>
+                    <span class="price">4300 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="k-c">
+                    <img src="images/ks4.jpg" class="product-img">
+                    <h3 class="product-title">Fire-Boltt</h3>
+                    <p>Fire-Boltt Jewel, Luxury Stainless Steel Smart Watch</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i><br>
+                    <span class="price">2590 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+            </div>
             
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required>
+            <div class="k-r">
+                <div class="k-c">
+                    <img src="images/ks5.jpg" class="product-img">
+                    <h3 class="product-title">Fossil</h3>
+                    <p>Chronograph White Dial Men's Watch-CH2882</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star-half-stroke" id="star"></i><br>
+                    <span class="price">2566 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="k-c">
+                    <img src="images/ks6.jpg" class="product-img">
+                    <h3 class="product-title">Ted Baker</h3>
+                    <p>TB Timeless Collection Men's Analog White Dial</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                   <i class="fa-regular fa-star" id="star"></i><br>
+                    <span class="price">5499 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="k-c">
+                    <img src="images/ks7.jpg" class="product-img">
+                    <h3 class="product-title">SKMEI</h3>
+                    <p>SKMEI Men Watch Dual-Display Electronic Watch</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star" id="star"></i><br>
+                    <span class="price">4300 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+                <div class="k-c">
+                    <img src="images/ks8.jpg" class="product-img">
+                    <h3 class="product-title">Movado</h3>
+                    <p>Museum Analog Blue Dial Men's Watch-607353</p>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa fa-star" id="star"></i>
+                    <i class="fa-regular fa-star-half-stroke" id="star"></i>
+                    <i class="fa-regular fa-star" id="star"></i><br>
+                    <span class="price">2590 Rs</span><br>
+                    <button name="add to cart">Add To Cart</button>
+                </div>
+            </div>   
+        </section>
+        
+        
+        
+    <!-------------------------Footer------------------------------------->
+        <section class="Footer">   
+             <div class="f-r">
+                 <div class="f-c">
+                     <h3>CUSTOMER SERVICE</h3>
+                     <P>Payment Option<br><br>Track Order<br><br>Find a Store</P>
+                 </div>
+                 <div class="f-c">
+                     <h3>CONTACT US</h3>
+                     <P><i class="fa fa-phone" aria-hidden="true" id="phone"></i>&nbsp;1800-266-0123<br><br><i class="fa fa-envelope" aria-hidden="true" id="email"></i>&nbsp;customercareMonochrome@gmail.in</P>
+                 </div>
+                 <div class="f-c">
+                     <h3>POLOCIES</h3>
+                     <P>Returns & Exchanges<br><br>Cancellation<br><br>Shipping<br><br>Warranty Policies<br><br>Delivery Information</P>
+                 </div>
+            </div>
+            <div class="f-r1">
+                <h3>Follow Us On</h3>
+                <i class="fa-brands fa-facebook-f" id="fi"></i><i class="fa-brands fa-twitter" id="fi"></i><i class="fa-brands fa-instagram" id="fi"></i>
+            </div>
+           
+        </section>
+        
+        
+        
+        <!-----------------------------------script---------------------------------->
+        <script src="script.js"></script>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required placeholder="johndoe123" >
-
-        <label for="password">Password:</label>
-        <div class="password-field">
-            <input type="password" id="password" name="password" required>
-            <span class="toggle-password" onclick="togglePasswordVisibility(this)"></span>
-        </div>
-
-        <!-- Add more fields as needed -->
-
-        <button name="submit" type="submit">Register</button>
-    </form>
-    </section>
-</body>
+    </body>
 </html>
